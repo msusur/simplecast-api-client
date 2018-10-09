@@ -4,11 +4,11 @@ class Episodes {
   }
 
   getEpisodes(podcastId) {
-    return this.client.get(`/podcasts/${podcastId}/episodes.json`);
+    return this.client.get(`podcasts/${podcastId}/episodes.json`);
   }
 
   getEpisode(podcastId, episodeId) {
-    return this.client.get(`/podcasts/${podcastId}/episodes/${episodeId}.json`);
+    return this.client.get(`podcasts/${podcastId}/episodes/${episodeId}.json`);
   }
 }
 module.exports = Episodes;

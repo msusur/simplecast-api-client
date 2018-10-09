@@ -27,13 +27,13 @@ describe('Podcasts', () => {
     it('should get all podcasts from the api', () => {
       podcasts.getPodcasts();
 
-      expect(clientMock.get.calledWith('/podcasts.json')).to.be.true;
+      expect(clientMock.get.calledWith('podcasts.json')).to.be.true;
     });
 
     it('should get a podcast from the api', () => {
       podcasts.getPodcast('number123');
 
-      expect(clientMock.get.calledWith('/podcasts/number123.json')).to.be.true;
+      expect(clientMock.get.calledWith('podcasts/number123.json')).to.be.true;
     });
   });
 });

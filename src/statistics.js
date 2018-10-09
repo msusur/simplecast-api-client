@@ -25,17 +25,17 @@ class Statistics {
   }
 
   getListenerStats(podcastId) {
-    return this.client.get(`/podcasts/${podcastId}/statistics.json`);
+    return this.client.get(`podcasts/${podcastId}/statistics.json`);
   }
 
   getOverallStats(podcastId, { timeframe, startDate, endDate }) {
-    let url = `/podcasts/${podcastId}/statistics/overall.json`;
+    let url = `podcasts/${podcastId}/statistics/overall.json`;
     url = produceRequestParams({ timeframe, startDate, endDate }, url);
     return this.client.get(url);
   }
 
   getEpisodeStats(podcastId, episodeId, { timeframe, startDate, endDate }) {
-    let url = `/podcasts/${podcastId}/statistics/episode.json`;
+    let url = `podcasts/${podcastId}/statistics/episode.json`;
     url = produceRequestParams(
       { episodeId, timeframe, startDate, endDate },
       url

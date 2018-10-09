@@ -26,7 +26,9 @@ describe('Simplecast Client', () => {
 
     it('should construct the right endpoint url', () => {
       const simplecast = new SimplecastClient({ apikey: 'test' });
-      expect(simplecast.endpoint).to.be.equal('https://api.simplecast.com/v1');
+      expect(simplecast.endpoint).to.be.equal(
+        'https://test:@api.simplecast.com/v1'
+      );
     });
 
     describe('sub properties', () => {
@@ -55,8 +57,8 @@ describe('Simplecast Client', () => {
       });
       const client = new MockedClient({ apikey: 'api-key' });
       const response = client.get('test');
-      expect(promise.calledWith('https://api.simplecast.com/v1/test')).to.be
-        .true;
+      expect(promise.calledWith('https://api-key:@api.simplecast.com/v1/test'))
+        .to.be.true;
       expect(response).to.be.equal('response-from-api');
     });
   });

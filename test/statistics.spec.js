@@ -27,7 +27,7 @@ describe('Statistics', () => {
     it('should get listener stats for the podcast from the api', () => {
       statistics.getListenerStats('podcast-id');
 
-      expect(clientMock.get.calledWith(`/podcasts/podcast-id/statistics.json`))
+      expect(clientMock.get.calledWith(`podcasts/podcast-id/statistics.json`))
         .to.be.true;
     });
 
@@ -37,7 +37,7 @@ describe('Statistics', () => {
 
         expect(
           clientMock.get.calledWith(
-            `/podcasts/podcast-id/statistics/overall.json`
+            `podcasts/podcast-id/statistics/overall.json`
           )
         ).to.be.true;
       });
@@ -51,7 +51,7 @@ describe('Statistics', () => {
 
         expect(
           clientMock.get.calledWith(
-            '/podcasts/podcast-id/statistics/overall.json?' +
+            'podcasts/podcast-id/statistics/overall.json?' +
               'timeframe=test&start_date=1980-12-12&end_date=1999-12-12'
           )
         ).to.be.true;
@@ -63,7 +63,7 @@ describe('Statistics', () => {
         statistics.getEpisodeStats('podcast-id', '1234', {});
         expect(
           clientMock.get.calledWith(
-            `/podcasts/podcast-id/statistics/episode.json?episode_id=1234`
+            `podcasts/podcast-id/statistics/episode.json?episode_id=1234`
           )
         ).to.be.true;
       });
@@ -76,7 +76,7 @@ describe('Statistics', () => {
         });
         expect(
           clientMock.get.calledWith(
-            `/podcasts/podcast-id/statistics/episode.json?episode_id=1234` +
+            `podcasts/podcast-id/statistics/episode.json?episode_id=1234` +
               '&timeframe=test&start_date=1980-12-12&end_date=1999-12-12'
           )
         ).to.be.true;

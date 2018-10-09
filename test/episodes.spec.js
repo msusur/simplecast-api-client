@@ -27,7 +27,7 @@ describe('Episodes', () => {
     it('should get all episodes for the podcast from the api', () => {
       episodes.getEpisodes('podcast-id');
 
-      expect(clientMock.get.calledWith(`/podcasts/podcast-id/episodes.json`)).to
+      expect(clientMock.get.calledWith(`podcasts/podcast-id/episodes.json`)).to
         .be.true;
     });
 
@@ -36,7 +36,7 @@ describe('Episodes', () => {
 
       expect(
         clientMock.get.calledWith(
-          `/podcasts/podcast-id/episodes/episode-id.json`
+          `podcasts/podcast-id/episodes/episode-id.json`
         )
       ).to.be.true;
     });

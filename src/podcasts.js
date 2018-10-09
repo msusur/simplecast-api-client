@@ -4,11 +4,11 @@ class Podcasts {
   }
 
   getPodcasts() {
-    return this.client.get('/podcasts.json');
+    return this.client.get('podcasts.json');
   }
 
   getPodcast(podcastId) {
-    return this.client.get(`/podcasts/${podcastId}.json`);
+    return this.client.get(`podcasts/${podcastId}.json`);
   }
 }
 
