@@ -1,10 +1,19 @@
-# Simplecast JS Client
+Simplecast JS Client
+===
 
 ### Getting Started
 
 `npm install` and `npm test`.
 
 ### Using the Client
+
+Install the package using `npm`.
+
+```sh
+npm i simplecast-api-client --save
+```
+
+Then simple get your api key and paste the following code.
 
 ```js
 const client = new SimpleCastClient({ apikey: 'MY API KEY' });
@@ -21,3 +30,5 @@ client.podcasts
     console.log({ response: error.message });
   });
 ```
+
+More documentation to come.
