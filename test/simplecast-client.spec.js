@@ -1,5 +1,7 @@
 const SimplecastClient = require('../src/simplecast-client');
 const chai = require('chai'),
+  sinon = require('sinon'),
+  proxyquire = require('proxyquire').noCallThru(),
   expect = chai.expect;
 
 describe('Simplecast Client', () => {
@@ -42,6 +44,20 @@ describe('Simplecast Client', () => {
         const simplecast = new SimplecastClient({ apikey: 'test' });
         expect(simplecast).to.have.property('statistics');
       });
+    });
+  });
+
+  describe('get', () => {
+    it('should call rp with the url and endpoint', () => {
+      const promise = sinon.stub().returns('response-from-api');
+      const MockedClient = proxyquire('../src/simplecast-client', {
+        'request-promise': promise
+      });
+      const client = new MockedClient({ apikey: 'api-key' });
+      const response = client.get('test');
+      expect(promise.calledWith('https://api.simplecast.com/v1/test')).to.be
+        .true;
+      expect(response).to.be.equal('response-from-api');
     });
   });
 });
