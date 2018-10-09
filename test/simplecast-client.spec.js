@@ -26,5 +26,22 @@ describe('Simplecast Client', () => {
       const simplecast = new SimplecastClient({ apikey: 'test' });
       expect(simplecast.endpoint).to.be.equal('https://api.simplecast.com/v1');
     });
+
+    describe('sub properties', () => {
+      it('should construct episodes property', () => {
+        const simplecast = new SimplecastClient({ apikey: 'test' });
+        expect(simplecast).to.have.property('episodes');
+      });
+
+      it('should construct podcasts property', () => {
+        const simplecast = new SimplecastClient({ apikey: 'test' });
+        expect(simplecast).to.have.property('podcasts');
+      });
+
+      it('should construct statistics property', () => {
+        const simplecast = new SimplecastClient({ apikey: 'test' });
+        expect(simplecast).to.have.property('statistics');
+      });
+    });
   });
 });

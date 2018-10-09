@@ -13,7 +13,7 @@ class SimpleCastClient {
 
     this.episodes = new Episodes(this);
     this.podcasts = new Podcasts(this);
-    this.Statistics = new Statistics(this);
+    this.statistics = new Statistics(this);
   }
 
   get(requestUrl) {
