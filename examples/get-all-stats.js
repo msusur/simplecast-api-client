@@ -1,4 +1,4 @@
-const SimpleCastClient = require('../src/simplecast-client');
+const SimpleCastClient = require("../src/simplecast-client");
 
 // Usage: node examples/get-all-stats.js API_KEY
 
@@ -8,19 +8,21 @@ client.podcasts
   .getPodcasts()
   .then(podcasts => {
     console.log(
-      `# of Podcasts: ${podcasts.length}.
-      Getting the episodes of ${podcasts[0].title}`
+      `# of Podcasts: ${podcasts.collection.length}.
+      Getting the episodes of ${podcasts.collection[0].title} (${
+        podcasts.collection[0].id
+      })`
     );
-    podcastId = podcasts[0].id;
-    return client.episodes.getEpisodes(podcastId);
+    podcastId = podcasts.collection[0].id;
+    return client.episodes.getEpisodes(podcastId, { limit: 1000 });
   })
   .then(episodes => {
-    console.log(`# of episodes: ${episodes.length}
-    Getting the stats for episode ${episodes[13].title}`);
-    return client.statistics.getEpisodeStats(podcastId, episodes[13].id, {});
+    console.log(`# of episodes: ${episodes.collection.length}
+    Getting the stats for episode ${episodes.collection[3].title}`);
+    return client.episodes.getDownloads(episodes.collection[3].id);
   })
-  .then(stats => {
-    console.log(`Total listens: ${stats.total_listens}`);
+  .then(downloads => {
+    console.log(`Total downloads: ${downloads.total}`);
   })
   .catch(error => {
     console.log({ response: error.message });
